@@ -89,6 +89,14 @@ router.post("/login", async (req, res) => {
     // Our register logic ends here
   });
 
+router.get('/jobs', async (req,res)=>{
+  try {
+    const jobs = await User.findOne();
+    res.status(200).json({jobs});
+  } catch (error) {
+    res.json({message:err});
+  }
+})
 
-module.exports = router
+module.exports = router;
 
