@@ -13,13 +13,14 @@ const UserSchema = new Schema({
   },
   password: String,
   email: String,
-  type: Number,
+  role: Number,
   bio: String,
   done: [{ type: Schema.Types.ObjectId, ref: "Job" }],
   ratings: [Number],
   skills: [{ type: Schema.Types.ObjectId, ref: "Skill" }],
   portfolio: { type: Schema.Types.ObjectId, ref: "Portfolio" },
   suspended: Boolean,
+  wallet: Number,
 });
 
 const User = mongoose.model("User", UserSchema);
