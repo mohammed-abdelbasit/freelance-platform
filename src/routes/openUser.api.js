@@ -17,7 +17,7 @@ router.post('/signup', async (req, res) => {
     } = req.body
 
     if (!(email && password && username)) {
-      res.status(400).send("All input is required")
+      res.status(400).send('All input is required')
     }
 
     // check if user already exist
@@ -25,7 +25,7 @@ router.post('/signup', async (req, res) => {
     const oldUser = await User.findOne({ email })
 
     if (oldUser) {
-      return res.status(409).send("User Already Exist. Please Login")
+      return res.status(409).send('User Already Exist. Please Login')
     }
 
     //Encrypt user password
@@ -42,7 +42,7 @@ router.post('/signup', async (req, res) => {
     })
 
     // Create token
-    const token = jwt.sign({ user }, "SECRET")
+    const token = jwt.sign({ user }, 'SECRET')
     // save user token
 
     // return new user with the token
