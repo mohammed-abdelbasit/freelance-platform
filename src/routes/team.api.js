@@ -4,8 +4,7 @@ const router = express.Router()
 /*
   Database models
 */
-const Job = require('../models/Job')
-const User = require('../models/User')
+
 const Team = require('../models/Team')
 
 /*
@@ -70,7 +69,7 @@ router.get('/:id', async (req, res) => {
 /*
   delete team route
 */
-router.get('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params
     const team = await Team.findOneAndDelete(id)
@@ -84,7 +83,7 @@ router.get('/:id', async (req, res) => {
 /*
   update team route
 */
-router.get('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params
     const teamInfo = req.body
