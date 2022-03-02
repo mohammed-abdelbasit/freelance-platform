@@ -56,7 +56,7 @@ router.get('/:id', async (req, res) => {
 /*
   get all teams route
 */
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const teams = await Team.find({})
 
