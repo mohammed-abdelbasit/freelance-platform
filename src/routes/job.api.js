@@ -1,28 +1,39 @@
-const Job = require("../models/Job");
-const express = require("express");
-const User = require("../models/User");
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-router.get("/getJobs", async (req, res) => {
+const Job = require('../models/Job')
+const User = require('../models/User')
+
+router.get('/jobs', async (req, res) => {
   try {
-    const filters = req.body.filters;
-    const jobs = await Job.find(filters ? filters : {}).populate("category");
-    res.status(201).json({ jobs });
+    const filters = req.body.filters
+
+    const jobs = await Job.find(filters ? filters : {}).populate('category')
+
+    res.status(200).json(jobs)
   } catch (error) {
-    console.log(error);
-    res.status(500).send("server error getJobs");
+    console.log(error)
+    res.status(500).send('faild to fetch jobs')
   }
-});
-////////////////////////////////////////////////////////////////
-router.post("/create", async (req, res) => {
+})
+
+router.post('/create', async (req, res) => {
   // Our login logic starts here
   try {
-    const { user } = req.user;
-    const { name, price, details, duration, delieverables, category } =
-      req.body;
+    const { user } = req.user
+
+    const { 
+      name,
+      price,
+      details,
+      duration,
+      delieverables,
+      category
+    } = req.body
+
     const delieverablesPrice = price / delieverables.length;
 
-    const job = new Job({
+    const job = await Job.create({
       name,
       price,
       details,
@@ -31,39 +42,37 @@ router.post("/create", async (req, res) => {
       category,
       owner: user,
       delieverablesPrice,
-    });
+    })
 
-    await job.save();
-
-    res.status(200).json({ job });
+    res.status(201).json({ job });
   } catch (err) {
-    console.log(err);
+    console.log(err)
+    res.status(500).send('faild to create job')
   }
-  // Our register logic ends here
-});
-////////////////////////////////////////////////////////////////
-router.post("/intersted", async (req, res) => {
+})
+
+router.post('/jobs/intersted', async (req, res) => {
   try {
-    const { user } = req.user;
-    console.log(user);
+    const { user } = req.user
+
+    const { jobId } = req.body
+
     if (user.role === 0) {
-      const { jobId } = req.body;
-      console.log(jobId, "jobid");
       const job = await Job.findByIdAndUpdate(
         jobId,
         { $push: { interested: user } },
-        { lean: true }
-      );
+        { lean: true , new: true}
+      )
 
-      res.status(200).json({ job });
+      res.status(200).json( job )
     } else {
-      res.status(500).send("user isnt a freelancer");
+      res.status(500).send('user have to be freelancer')
     }
   } catch (error) {
-    console.log(error);
-    res.status(500).send(error);
+    console.log(error)
+    res.status(500).send(error)
   }
-});
+})
 ////////////////////////////////////////////////////////////////
 router.post("/assign", async (req, res) => {
   try {
