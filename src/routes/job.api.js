@@ -173,7 +173,7 @@ router.post("/clientCheckDelieverable", async (req, res) => {
     res.status(500).send("server error checkDelieverable");
   }
 });
-
+////////////////////////////////////////////////////////////////
 router.post("/freelancerCheckDelieverable", async (req, res) => {
   try {
     const { user } = req.user;
