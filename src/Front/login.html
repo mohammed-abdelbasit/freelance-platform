@@ -6,13 +6,13 @@
 
     <title>Sign In</title>
     <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/favicon.png" rel="icon" />
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/loginStyle.css" rel="stylesheet" />
+    <link href="/assets/css/loginStyle.css" rel="stylesheet" />
   </head>
   <body>
     <section class="vh-100 gradient-custom">
@@ -24,7 +24,7 @@
           <div class="col-12 col-md-8 col-lg-6 col-xl-5">
             <div class="card shadow-2-strong" style="border-radius: 1rem">
               <div class="card-body p-5 text-start">
-                <form>
+                <form method="post" id="login">
                   <h3>Welcome Back !</h3>
                   <p>welcome back, please enter your details</p>
 
@@ -36,7 +36,7 @@
                     >
                     <input
                       type="email"
-                      id="Email"
+                      id="email"
                       class="form-control form-control-lg"
                       placeholder="name@example.com"
                       required
@@ -51,7 +51,7 @@
                     >
                     <input
                       type="password"
-                      id="Password"
+                      id="password"
                       class="form-control form-control-lg"
                       placeholder="Enter Your Password"
                       required
@@ -76,4 +76,22 @@
       </div>
     </section>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    document.getElementById("login").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const res = await axios.post("http://localhost:4000/user/login", {
+        email,
+        password,
+      });
+      console.log(res.data);
+      if (res.data.user && res.data.token) {
+        localStorage.setItem("user", res.data.user);
+        localStorage.setItem("token", res.data.token);
+        document.location.href = "http://localhost:4000/feed.html";
+      }
+    });
+  </script>
 </html>

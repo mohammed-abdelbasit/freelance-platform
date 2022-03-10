@@ -20,14 +20,14 @@
       <div class="col m-4">
         <div class="leftside">
           <!--Form-->
-          <form>
+          <form action="/signup" method="post" id="signup">
             <div class="container py-3 pt-5 h-100">
               <div class="pt-2"></div>
               <h1>Welcome !</h1>
               <p>please enter your details</p>
               <div class="row justify-content-start">
                 <div class="col-md-8">
-                  <form class="form-horizontal" method="post" action="#">
+                  <form class="form-horizontal">
                     <div class="form-group">
                       <label for="name" class="row-cols-sm-5 control-label"
                         >Username</label
@@ -40,8 +40,7 @@
                           <input
                             type="text"
                             class="form-control"
-                            name="name"
-                            id="name"
+                            id="username"
                             placeholder="Enter your name"
                             required
                           />
@@ -59,10 +58,9 @@
                             ><i class="fa fa-envelope fa" aria-hidden="true"></i
                           ></span>
                           <input
-                            type="text"
+                            type="password"
                             class="form-control"
-                            name="email"
-                            id="email"
+                            id="password"
                             placeholder="Enter your password"
                             required
                           />
@@ -82,8 +80,7 @@
                           <input
                             type="text"
                             class="form-control"
-                            name="username"
-                            id="username"
+                            id="email"
                             placeholder="name@example.com"
                             required
                           />
@@ -92,14 +89,26 @@
                     </div>
 
                     <div class="form-group pt-4">
-                      <div class="row-cols-sm-10">
-                        <button type="button" class="btn btn-light col-md-3">
+                      <div class="btn-group row-cols-sm-10">
+                        <button
+                          type="button"
+                          id="freelancer"
+                          class="btn btn-light col-md-3"
+                        >
                           Freelancer
                         </button>
-                        <button type="button" class="btn btn-light col-md-3">
+                        <button
+                          type="button"
+                          id="client"
+                          class="btn btn-light col-md-3"
+                        >
                           Client
                         </button>
-                        <button type="button" class="btn btn-light col-md-3">
+                        <button
+                          type="button"
+                          id="company"
+                          class="btn btn-light col-md-3"
+                        >
                           Company
                         </button>
                       </div>
@@ -132,4 +141,6 @@
       </div>
     </div>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./assets/js/signup.js"></script>
 </html>
