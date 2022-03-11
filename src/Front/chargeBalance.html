@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>Charge Balance</title>
+  <meta content="" name="description" />
+
+  <meta content="" name="keywords" />
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+  <link href="assets/css/loginStyle.css" rel="stylesheet" />
+  <style>
+    .min-vh-80 {
+      min-height: 80vh;
+    }
+  </style>
+</head>
+
+<body class="min-vh-100">
+  
+  <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom py-0">
+    <div class="container">
+      <a class="navbar-brand p-0" href="index.html"><img src="assets/img/logo.png" width="100px" alt="logo"></a>
+      <button class="navbar-toggler m-1 border-0 d-lg-none"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav gap-md-4 ms-auto mt-2 mt-lg-0">
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="createJob.html">Create Jop</a>
+          </li>
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="profile.html">Profile</a>
+          </li>
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="explore.html">Explore <span class="visually-hidden">(current)</span></a>
+          </li>
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="inbox.html">Inbox</a>
+          </li>
+          <li class="nav-item py-md-2 active">
+            <a class="nav-link" href="chargeBalance.html">Charge Balance</a>
+          </li>
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="index.html">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--content-->
+
+  <div class="container d-flex justify-content-center align-items-center flex-column min-vh-80">
+    <div class="card border-0 border-top border-3 border-indigo shadow-sm col-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+      <div class="card-body text-center">  
+        <h1 class="h5">Choose payment method</h1>
+        
+        <hr>
+
+        <div class="d-flex justify-content-center gap-2">
+          <img src="./assets/img/mbok-logo.png" class="rounded mx-3 d-inline" alt="..." />
+          <img src="./assets/img/bitcoin-logo.png" class="rounded mx-3 d-inline" alt="..." />
+          <img src="./assets/img/ethereum-logo.png" class="rounded mx-3 d-inline" fw alt="..." />
+        </div>
+
+        <hr>
+
+        <form class="mt-4">
+          <label class="form-label" for="amount">Amount</label>
+          <input type="text" class="form-control" name="amount" id="amount" required />
+        </form>
+
+        <button type="button" class="btn btn-indigo w-100 charge">Charge</button>
+    </div>
+  </div>
+  </div>
+
+  <!--content-->
+<script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
