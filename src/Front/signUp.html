@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>Sign Up</title>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/img/favicon.png" rel="icon" />
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/loginStyle.css" rel="stylesheet" />
+</head>
+
+
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      
+        <!--Form-->
+        <form>
+          <div class="container py-4 h-100">
+            <h1>Welcome !</h1>
+            <p>please enter your details</p>
+            <div class="row justify-content-start">
+              <div class="col-md-8">
+                <form class="form-horizontal" method="post" action="#">
+                  <div class="form-group mb-3">
+                    <label for="name" class="row-cols-sm-5 form-label">Username</label>
+                    <div class="cols-sm-10">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name"
+                          required />
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                  <div class="form-group mb-3">
+                    <label for="email" class="cols-sm-2 form-label">Email</label>
+                    <div class="cols-sm-10">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" name="email" id="email"
+                        placeholder="name@example.com" required />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="password" class="cols-sm-2 form-label">Password</label>
+                    <div class="cols-sm-10">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" name="password" id="password"
+                          placeholder="Enter your password" required />
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="d-flex gap-2">
+                      <input class="d-none" type="radio" id="freelancer" name="type" />
+                      <label class="btn btn-light" for="freelancer">Freelancer</label>
+                      <input class="d-none" type="radio" id="client" name="type" />
+                      <label class="btn btn-light" for="client">Client</label>
+                      <input class="d-none" type="radio" id="company" name="type" />
+                      <label class="btn btn-light" for="company">Company</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <button class="btn btn-indigo w-100 signup" type="submit">
+                      Sign Up
+                    </button>
+                  </div>
+                </form>
+              </div>
+            
+          </div>
+        </form>
+        <!--End Of Form-->
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <div>
+        <img src="assets/img/signup-img.png" class="img-fluid" alt="" />
+        <h3 class="signuph3">
+          Find High-quality Services At Every Price Point. No Hourly Rates,
+          Just Project-based Pricing.
+        </h3>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+</div>
+  
+<!-- Radio button background -->
+<script>
+  let inputs = document.querySelectorAll('input[type="radio"]');
+  let labels = document.querySelectorAll('label.btn');
+  inputs.forEach( function (input, index) {
+    labels[index].addEventListener('click', function () {
+      console.log(input.checked);
+      labels.forEach(label => {
+        label.classList.remove('btn-indigo');      
+      })
+      labels[index].classList.add('btn-indigo');
+    })
+  })
+</script>
+
+</body>
+
+</html>
