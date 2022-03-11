@@ -3,80 +3,72 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
     <title>Sign In</title>
     <link
-      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/favicon.png" rel="icon" />
 
     <!-- Template Main CSS File -->
-    <link href="/assets/css/loginStyle.css" rel="stylesheet" />
+    <link href="assets/css/loginStyle.css" rel="stylesheet" />
   </head>
   <body>
-    <section class="vh-100 gradient-custom">
-      <div class="container py-4 pt-5 h-100">
-        <div
-          class="row d-flex justify-content-center align-items-baseline h-100"
-        >
-          <div></div>
-          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div class="card shadow-2-strong" style="border-radius: 1rem">
-              <div class="card-body p-5 text-start">
-                <form method="post" id="login">
-                  <h3>Welcome Back !</h3>
-                  <p>welcome back, please enter your details</p>
+    <section
+      class="min-vh-100 gradient-custom d-flex justify-content-center align-items-center"
+    >
+      <div class="container">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5 mx-auto">
+          <div class="card">
+            <div class="card-body p-5 text-start">
+              <form>
+                <h3>Welcome Back !</h3>
+                <p>welcome back, please enter your details</p>
+                <div class="form-outline mb-3 bd-highlight">
+                  <label class="form-label bd-highlight" for="Email"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="Email"
+                    class="form-control"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </div>
 
-                  <div class="form-outline p-2 bd-highlight">
-                    <label
-                      class="form-label p-2 bd-highlight"
-                      for="typeEmailX-2"
-                      >Email</label
+                <div class="form-outline bd-highlight mb-3">
+                  <label class="form-label bd-highlight" for="Password"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    id="Password"
+                    class="form-control"
+                    placeholder="Enter Your Password"
+                    required
+                  />
+                </div>
+
+                <button class="btn btn-indigo w-100" type="submit">
+                  Sign In
+                </button>
+
+                <div class="mt-2">
+                  <p class="w-100">
+                    Not a memeber yet ?
+                    <a href="./signUp.html" class="text-black-50 fw-bold"
+                      >Sign Up</a
                     >
-                    <input
-                      type="email"
-                      id="email"
-                      class="form-control form-control-lg"
-                      placeholder="name@example.com"
-                      required
-                    />
-                  </div>
-
-                  <div class="form-outline p-2 bd-highlight">
-                    <label
-                      class="form-label p-2 bd-highlight"
-                      for="typePasswordX-2"
-                      >Password</label
-                    >
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control form-control-lg"
-                      placeholder="Enter Your Password"
-                      required
-                    />
-                  </div>
-
-                  <button class="btn-get-started" type="submit">Sign In</button>
-
-                  <div>
-                    <p class="w-auto m-3">
-                      Not a memeber yet ?
-                      <a href="./signUp.html" class="text-black-50 fw-bold"
-                        >Sign Up</a
-                      >
-                    </p>
-                  </div>
-                </form>
-              </div>
+                  </p>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </section>
   </body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     document.getElementById("login").addEventListener("submit", async (e) => {
       e.preventDefault();
