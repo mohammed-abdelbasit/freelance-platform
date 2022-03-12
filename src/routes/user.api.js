@@ -1,5 +1,6 @@
 const express = require('express')
 // const jwt = require('jsonwebtoken')
+const multer = require('multer')
 const router = express.Router()
 const { join } = require('fs')
 
@@ -17,7 +18,7 @@ const storage = multer.diskStorage({
  
 const upload = multer({ storage: storage })
 
-router.post('/addPortfolio', upload.array(screenshots, 5), async (req, res) => {
+router.post('/addPortfolio', upload.array('screenshots', 5), async (req, res) => {
   try {
     const { user } = req.user
 
