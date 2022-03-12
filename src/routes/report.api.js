@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
   try {
     const reports = await Report.find({})
 
-    res.status(200).json({ reports });
+    res.status(200).json({ reports })
   } catch (error) {
     res.status(500).send('Internal server error')
   }

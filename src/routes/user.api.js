@@ -1,11 +1,23 @@
 const express = require('express')
 // const jwt = require('jsonwebtoken')
 const router = express.Router()
+const { join } = require('fs')
 
 const User = require('../models/User')
 const Portfolio = require('../models/Portfolio')
 
-router.post('/addPortfolio', async (req, res) => {
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, join(process.cwd(), '/uploads/'))
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '.jpg')
+  }
+})
+ 
+const upload = multer({ storage: storage })
+
+router.post('/addPortfolio', upload.array(screenshots, 5), async (req, res) => {
   try {
     const { user } = req.user
 
@@ -13,10 +25,10 @@ router.post('/addPortfolio', async (req, res) => {
       res.status(500).send('only freelancer has a portfolio')
     }
 
-    const { screenshots, details } = req.body
+    const { details } = req.body
 
     const portfolio = new Portfolio.create({
-      screenshots,
+      screenshots: req.files,
       details
     })
 
