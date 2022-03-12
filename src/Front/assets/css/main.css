@@ -1,0 +1,47 @@
+.border-indigo {
+  border-color: #2d2e83 !important;
+}
+.bg-indigo {
+  background-color: #2d2e83 !important;
+}
+.text-indigo {
+  color: #2d2e83 !important;
+}
+
+.active {
+  color: #2d2e83 !important;
+  border-color: #2d2e83 !important;
+  border-bottom: 2px solid;
+}
+.active > a {
+  color: #2d2e83 !important;
+}
+.nav-item:hover {
+  border-bottom: 2px solid;
+  border-color: #2d2e83 !important;
+}
+.nav-item:hover > a {
+  color: #2d2e83 !important;
+}
+tr,
+td {
+  border: none;
+}
+
+td span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 50%;
+}
+
+.btn-indigo {
+  background-color: #2d2e83;
+  color: #fff;
+}
+
+.btn-indigo:hover {
+  background-color: rgba(93, 83, 154, 1);
+  color: #fff;
+}
