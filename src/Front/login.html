@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,3 +88,94 @@
     </script>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign In</title>
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/img/favicon.png" rel="icon" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/loginStyle.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section
+      class="min-vh-100 gradient-custom d-flex justify-content-center align-items-center"
+    >
+      <div class="container">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5 mx-auto">
+          <div class="card">
+            <div class="card-body p-5 text-start">
+              <form>
+                <h3>Welcome Back !</h3>
+                <p>welcome back, please enter your details</p>
+                <div class="form-outline mb-3 bd-highlight">
+                  <label class="form-label bd-highlight" for="Email"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="Email"
+                    class="form-control"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-outline bd-highlight mb-3">
+                  <label class="form-label bd-highlight" for="Password"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    id="Password"
+                    class="form-control"
+                    placeholder="Enter Your Password"
+                    required
+                  />
+                </div>
+
+                <button class="btn btn-indigo w-100" type="submit">
+                  Sign In
+                </button>
+
+                <div class="mt-2">
+                  <p class="w-100">
+                    Not a memeber yet ?
+                    <a href="./signUp.html" class="text-black-50 fw-bold"
+                      >Sign Up</a
+                    >
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.getElementById("login").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const res = await axios.post("http://localhost:4000/user/login", {
+          email,
+          password,
+        });
+        console.log(res.data);
+        if (res.data.user && res.data.token) {
+          localStorage.setItem("user", res.data.user);
+          localStorage.setItem("token", res.data.token);
+          document.location.href = "http://localhost:4000/feed.html";
+        }
+      });
+    </script>
+  </body>
+</html>
+>>>>>>> 10b34adef945e873e1e52c022a2b6e9f92197c5f
