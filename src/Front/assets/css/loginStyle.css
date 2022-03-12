@@ -1,0 +1,72 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    rgba(45, 46, 131, 1),
+    rgba(93, 83, 154, 1)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(
+    to right,
+    rgba(45, 46, 131, 1),
+    rgba(93, 83, 154, 1)
+  );
+}
+
+.btn-get-started {
+  font-family: "Gilroy", sans-serif;
+  font-weight: regular;
+  width: 420px;
+  margin-top: 30px;
+  line-height: 0;
+  padding: 20px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #2d2e83;
+}
+
+.signup {
+  font-family: "Gilroy", sans-serif;
+  font-weight: regular;
+  width: 400px;
+  margin-top: 30px;
+  line-height: 0;
+  padding: 20px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #2d2e83;
+}
+
+.charge {
+  font-family: "Gilroy", sans-serif;
+  font-weight: regular;
+  width: 159px;
+  margin-top: 30px;
+  line-height: 0;
+  padding: 20px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #2d2e83;
+}
+
+.leftside,
+rightside {
+  height: 1200vh;
+  width: 100%;
+}
+
+.signuph3 {
+  text-align: center;
+  font-size: 20px;
+}
+
+hr.style1 {
+  border-top: 1px solid #8c8b8b;
+}

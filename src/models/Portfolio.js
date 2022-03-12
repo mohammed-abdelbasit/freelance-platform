@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const portfolioSchema = new Schema({
     screenshots:[String],
+    title: String,
     details:String
 })
 
