@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,14 +53,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav gap-md-4 ms-auto mt-2 mt-lg-0">
             <li class="nav-item py-md-2 active">
-              <a class="nav-link" href="createJob.html">Create Jop</a>
+              <a class="nav-link" href="createJob.html" id="create-job-link"
+                >Create Job</a
+              >
             </li>
             <li class="nav-item py-md-2">
               <a class="nav-link" href="profile.html">Profile</a>
             </li>
             <li class="nav-item py-md-2">
-              <a class="nav-link" href="explore.html"
-                >Explore <span class="visually-hidden">(current)</span></a
+              <a class="nav-link" href="feed.html" id="feed-link"
+                >Feed <span class="visually-hidden">(current)</span></a
               >
             </li>
             <li class="nav-item py-md-2">
@@ -189,132 +190,8 @@
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/js/createJob.js"></script>
+    <script>
+      getCategories();
+    </script>
   </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Job</title>
-  <meta content="" name="description" />
-  <meta content="" name="keywords" />
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon" />
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet" />
-  <link href="assets/css/loginStyle.css" rel="stylesheet" />
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom py-0">
-    <div class="container">
-      <a class="navbar-brand p-0" href="index.html"><img src="assets/img/logo.png" width="100px" alt="logo"></a>
-      <button class="navbar-toggler m-1 border-0 d-lg-none" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav gap-md-4 ms-auto mt-2 mt-lg-0">
-          <li class="nav-item py-md-2 active">
-            <a class="nav-link" href="createJob.html">Create Jop</a>
-          </li>
-          <li class="nav-item py-md-2">
-            <a class="nav-link" href="profile.html">Profile</a>
-          </li>
-          <li class="nav-item py-md-2">
-            <a class="nav-link" href="explore.html">Explore <span class="visually-hidden">(current)</span></a>
-          </li>
-          <li class="nav-item py-md-2">
-            <a class="nav-link" href="inbox.html">Inbox</a>
-          </li>
-          <li class="nav-item py-md-2">
-            <a class="nav-link" href="chargeBalance.html">Charge Balance</a>
-          </li>
-          <li class="nav-item py-md-2">
-            <a class="nav-link" href="index.html">Log out</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <form class="form-horizontal" method="post" action="#">
-
-          <div class="form-group mb-2">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Enter job title" required />
-          </div>
-
-          <div class="form-group mb-2">
-            <label for="details" class="form-label">Details</label>
-            <textarea class="form-control" id="details" rows="2"></textarea>
-          </div>
-
-          <div class="form-group mb-2">
-            <label for="email" class="form-label">Category</label>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
-                required />
-              <label class="form-check-label" for="inlineRadio1">Graphic Design</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
-                required />
-              <label class="form-check-label" for="inlineRadio2">Software Development</label>
-            </div>
-          </div>
-
-          <div class="form-group mb-2">
-            <label for="price" class="form-label">Price</label>
-            <input type="text" class="form-control" name="name" id="price" placeholder="ex 30,000 SDG" required />
-          </div>
-
-          <div class="form-group mb-2">
-            <label for="Deliverables" class="form-label">Deliverables</label>
-            <input type="text" class="form-control" name="name" id="Deliverables" placeholder="Number of deliverables"
-              required />
-          </div>
-
-          <div class="form-group">
-            <label for="duration" class="form-label">Duration</label>
-            <input type="text" class="form-control" name="name" id="duration" placeholder="ex 2 months" required />
-          </div>
-
-          <div class="form-group mb-3">
-            <button class="btn btn-indigo w-100 signup" type="submit">
-              Create
-            </button>
-          </div>
-        </form>
-      </div>
-      <!--End Of Form-->
-
-      <div class="col-12 col-lg-6 d-none d-lg-flex">
-        <div>
-          <img src="assets/img/createJob.png" class="img-fluid" alt="" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
->>>>>>> 10b34adef945e873e1e52c022a2b6e9f92197c5f

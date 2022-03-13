@@ -1,79 +1,82 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const Job = require('../models/Job')
-const User = require('../models/User')
+const Job = require("../models/Job");
+const User = require("../models/User");
 
-router.get('/jobs', async (req, res) => {
+////////////////////////////////////////////////////////////////
+
+router.get("/jobs", async (req, res) => {
   try {
-    const filters = req.body.filters
+    const filters = req.body.filters;
 
-    const jobs = await Job.find(filters ? filters : {}).populate('category')
+    const jobs = await Job.find(filters ? filters : {}).populate("owner");
 
-    res.status(200).json(jobs)
+    res.status(200).json(jobs);
   } catch (error) {
-    console.log(error)
-    res.status(500).send('faild to fetch jobs')
+    console.log(error);
+    res.status(500).send("faild to fetch jobs");
   }
-})
+});
 
-router.post('/create', async (req, res) => {
+////////////////////////////////////////////////////////////////
+
+router.post("/create", async (req, res) => {
   // Our login logic starts here
   try {
-    const { user } = req.user
+    const { user } = req.user;
 
-    const { 
-      name,
-      price,
-      details,
-      duration,
-      delieverables,
-      category
-    } = req.body
+    const { title, price, details, duration, deliverables, category } =
+      req.body;
 
-    const delieverablesPrice = price / delieverables.length;
+    console.log("Delivs: ", req.body);
+    const deliverablesPrice = price / parseInt(deliverables);
 
     const job = await Job.create({
-      name,
+      title,
       price,
       details,
       duration,
-      delieverables,
+      deliverables,
       category,
       owner: user,
-      delieverablesPrice,
-    })
+      deliverablesPrice,
+    });
 
     res.status(201).json({ job });
   } catch (err) {
-    console.log(err)
-    res.status(500).send('faild to create job')
+    console.log(err);
+    res.status(500).send("faild to create job");
   }
-})
+});
 
-router.post('/jobs/intersted', async (req, res) => {
+////////////////////////////////////////////////////////////////
+
+router.post("/jobs/intersted", async (req, res) => {
   try {
-    const { user } = req.user
+    const { user } = req.user;
 
-    const { jobId } = req.body
+    const { jobId } = req.body;
 
     if (user.role === 0) {
       const job = await Job.findByIdAndUpdate(
         jobId,
         { $push: { interested: user } },
-        { lean: true , new: true}
-      )
+        { lean: true, new: true }
+      );
 
-      res.status(200).json( job )
+      res.status(200).json(job);
     } else {
-      res.status(500).send('user have to be freelancer')
+      res.status(500).send("user have to be freelancer");
     }
   } catch (error) {
-    console.log(error)
-    res.status(500).send(error)
+    console.log(error);
+    res.status(500).send(error);
   }
-})
+});
+
 ////////////////////////////////////////////////////////////////
+
 router.post("/assign", async (req, res) => {
   try {
     const { user } = req.user;
@@ -104,7 +107,9 @@ router.post("/assign", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
 ////////////////////////////////////////////////////////////////
+
 router.post("/addChange", async (req, res) => {
   try {
     const { user } = req.user;
@@ -127,7 +132,9 @@ router.post("/addChange", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
 ////////////////////////////////////////////////////////////////
+
 router.post("/acceptChange", async (req, res) => {
   try {
     const { user } = req.user;
@@ -156,7 +163,9 @@ router.post("/acceptChange", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
 ////////////////////////////////////////////////////////////////
+
 router.post("/clientCheckDelieverable", async (req, res) => {
   try {
     const { user } = req.user;
@@ -164,10 +173,10 @@ router.post("/clientCheckDelieverable", async (req, res) => {
     const job = await Job.findOne({ _id: jobId });
     if (user._id.toString() === job.owner.toString()) {
       const updatedJob = await Job.findOneAndUpdate(
-        { _id: job._id, "delieverables._id": delieverableId },
+        { _id: job._id, "deliverables._id": delieverableId },
         {
           $set: {
-            "delieverables.$.clientCheck": true,
+            "deliverables.$.clientCheck": true,
           },
         },
         { new: true }
@@ -182,7 +191,9 @@ router.post("/clientCheckDelieverable", async (req, res) => {
     res.status(500).send("server error checkDelieverable");
   }
 });
+
 ////////////////////////////////////////////////////////////////
+
 router.post("/freelancerCheckDelieverable", async (req, res) => {
   try {
     const { user } = req.user;
@@ -194,10 +205,10 @@ router.post("/freelancerCheckDelieverable", async (req, res) => {
     );
     if (assignedUser) {
       const updatedJob = await Job.findOneAndUpdate(
-        { _id: job._id, "delieverables._id": delieverableId },
+        { _id: job._id, "deliverables._id": delieverableId },
         {
           $set: {
-            "delieverables.$.freelancerCheck": true,
+            "deliverables.$.freelancerCheck": true,
           },
         },
         { new: true }

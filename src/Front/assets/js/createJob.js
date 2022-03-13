@@ -19,14 +19,18 @@ form.addEventListener("submit", async function (event) {
     category = "software development";
 
   try {
-    const res = await axios.post("http://localhost:4000/create", {
-      title,
-      details,
-      price,
-      deliverables,
-      duration,
-      category,
-    });
+    const res = await axios.post(
+      "http://localhost:4000/auth/job/create",
+      {
+        title,
+        details,
+        price,
+        deliverables,
+        duration,
+        category,
+      },
+      { headers: { token: localStorage.getItem("token") } }
+    );
     console.log(res.data);
 
     return true;
@@ -34,3 +38,16 @@ form.addEventListener("submit", async function (event) {
     console.log(error);
   }
 });
+
+async function getCategories() {
+  console.log("Token: ", localStorage.getItem("token"));
+  try {
+    const res = await axios.get(
+      "http://localhost:4000/auth/category/categories",
+      { headers: { token: localStorage.getItem("token") } }
+    );
+    console.log(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+}

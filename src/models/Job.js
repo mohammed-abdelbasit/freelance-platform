@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const jobSchema = new Schema({
-  name: String,
+  title: String,
   price: String,
   details: String,
   duration: String,
@@ -10,7 +10,7 @@ const jobSchema = new Schema({
     { title: String, freelancerCheck: Boolean, clientCheck: Boolean },
   ],
   skills: [{ type: Schema.Types.ObjectId, ref: "Skill" }],
-  category: { type: Schema.Types.ObjectId, ref: "Category" },
+  category: String,
   interested: [{ type: Schema.Types.ObjectId, ref: "User" }],
   assigned: [{ type: Schema.Types.ObjectId, ref: "User" }],
   owner: { type: Schema.Types.ObjectId, ref: "User" },
