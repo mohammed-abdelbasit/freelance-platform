@@ -40,6 +40,7 @@ router.post("/create", async (req, res) => {
       deliverables,
       category,
       owner: user,
+      state: 'unsigned',
       deliverablesPrice,
     });
 
@@ -52,7 +53,7 @@ router.post("/create", async (req, res) => {
 
 ////////////////////////////////////////////////////////////////
 
-router.post("/jobs/intersted", async (req, res) => {
+router.post("/interested", async (req, res) => {
   try {
     const { user } = req.user;
 
@@ -61,7 +62,7 @@ router.post("/jobs/intersted", async (req, res) => {
     if (user.role === 0) {
       const job = await Job.findByIdAndUpdate(
         jobId,
-        { $push: { interested: user } },
+        { $push: { interested: user, state: 'interested' } },
         { lean: true, new: true }
       );
 
@@ -87,6 +88,7 @@ router.post("/assign", async (req, res) => {
       if (job.owner._id.toString() === user._id.toString()) {
         job.assigned.push(userId);
         job.interested.filter((intersted) => intersted === userId);
+        job.state = 'asigned'
         await job.save();
         const owner = await User.findOneAndUpdate(
           { _id: job.owner._id },
