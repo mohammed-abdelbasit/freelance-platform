@@ -77,6 +77,12 @@
     <script src="./assets/js/feed.js"></script>
     <script>
       getJobs();
+      document.addEventListener('click',function(e){
+      if(e.target && e.target.id== 'interested-btn'){
+        interested(e.target.value);
+      }
+      });
+
     </script>
   </body>
 </html>

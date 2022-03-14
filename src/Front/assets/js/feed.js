@@ -1,13 +1,13 @@
 async function getJobs() {
   // console.log("Token: ", localStorage.getItem("token"));
-  // console.log("user: ", JSON.parse(localStorage.getItem("user")));
+    // console.log("user: ", JSON.parse(localStorage.getItem("user")));
   try {
     const { data } = await axios.get("http://localhost:4000/auth/job/jobs", {
       headers: { token: localStorage.getItem("token") },
     });
     let jobsContainer = document.querySelector("#jobs-container");
     data.forEach((item) => {
-      const { category, duration, details, price, title, owner } = item;
+    const { category, duration, details, price, title, owner,_id } = item;
       const htmlString = `
         <div class="card mb-4 bg-light border-0">
           <div class="card-body">
@@ -31,7 +31,7 @@ async function getJobs() {
               <span
                 >${price} <span class="text-indigo fw-bold">SDG</span></span
               >
-              <button class="btn btn-indigo btn-sm" id = "interested-btn">Interested</button>
+              <button class="btn btn-indigo btn-sm" id="interested-btn" value=${_id}>Interested</button>
             </footer>
           </div>
           <div class="card-footer bg-white border-0 px-0">
@@ -58,5 +58,15 @@ async function getJobs() {
     });
   } catch (error) {
     console.log(error);
+  }
+}
+
+async function interested (jobId) {
+  try {
+    const { data } = await axios.post("http://localhost:4000/auth/job/interested",{ jobId }, {
+      headers: { token: localStorage.getItem("token") },
+    });
+  } catch (error) {
+    
   }
 }
