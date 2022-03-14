@@ -10,4 +10,4 @@
 
 6- admin can change user status (suspend, ...etc)
 
-6- admin can warn a user
+7- admin can warn a user
