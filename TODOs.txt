@@ -6,8 +6,10 @@
 
 4- get finished jobs by freelancer in get profile route
 
-5- inbox between client and freelancer
+5- inbox between client and freelancer and company
 
 6- admin can change user status (suspend, ...etc)
 
-6- admin can warn a user
+7- admin can warn a user by sending a message
+
+8- freelancer can check his balance
