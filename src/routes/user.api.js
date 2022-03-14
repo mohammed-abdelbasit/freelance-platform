@@ -91,4 +91,24 @@ router.put('/portfolio', async (req, res) => {
     res.status(500).send('server error update portfolio')
   }
 })
+
+router.put('/', async (req, res) => {
+  try {
+    const { user } = req.user
+
+    const userInfo = req.body
+
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { $set: userInfo },
+      { new: true }
+    )
+
+    res.status(200).json({ updatedUser })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('faild to update user information')
+  }
+})
+
 module.exports = router
