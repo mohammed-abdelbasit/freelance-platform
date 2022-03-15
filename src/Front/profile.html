@@ -57,93 +57,22 @@
         </aside>
       </header>
 
-      <div class="row mt-5">
+      <!-- <div class="row mt-5">
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card mb-4 bg-light border-0">
             <div class="card-body" id="jobs-container"></div>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card mb-4 bg-light border-0">
-            <div class="card-body">
-              <header class="d-flex flex-column gap-2">
-                <div class="d-flex justify-content-between align-items-center w-100 gap-2">
-                  <span class="h5">Website Design</span>
-                  <button class="btn btn-secondary btn-sm rounded-pill">
-                    web development
-                  </button>
-                </div>
-                <span class="text-indigo">1 Month</span>
-              </header>
-              <p class="my-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti tenetur hic accusantium earum aliquid dolore quos
-                molestiae ad. Facere, dicta.
-              </p>
-              <footer class="d-flex justify-content-between align-items-center">
-                <button data-bs-toggle="modal" data-bs-target="#modelId" class="btn btn-indigo btn-sm w-30">
-                  Interested Freelancers
-                </button>
-              </footer>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card mb-4 bg-light border-0">
-            <div class="card-body">
-              <header class="d-flex flex-column gap-2">
-                <div class="d-flex justify-content-between align-items-center w-100 gap-2">
-                  <span class="h5">Website Design</span>
-                  <button class="btn btn-secondary btn-sm rounded-pill">
-                    web development
-                  </button>
-                </div>
-                <span class="text-indigo">1 Month</span>
-              </header>
-              <p class="my-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti tenetur hic accusantium earum aliquid dolore quos
-                molestiae ad. Facere, dicta.
-              </p>
-              <footer class="d-flex justify-content-between align-items-center">
-                <button data-bs-toggle="modal" data-bs-target="#modelId" class="btn btn-indigo btn-sm w-30">
-                  Interested Freelancers
-                </button>
-              </footer>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card mb-4 bg-light border-0">
-            <div class="card-body">
-              <header class="d-flex flex-column gap-2">
-                <div class="d-flex justify-content-between align-items-center w-100 gap-2">
-                  <span class="h5">Website Design</span>
-                  <button class="btn btn-secondary btn-sm rounded-pill">
-                    web development
-                  </button>
-                </div>
-                <span class="text-indigo">1 Month</span>
-              </header>
-              <p class="my-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti tenetur hic accusantium earum aliquid dolore quos
-                molestiae ad. Facere, dicta.
-              </p>
-              <footer class="d-flex justify-content-between align-items-center">
-                <button data-bs-toggle="modal" data-bs-target="#modelId" class="btn btn-indigo btn-sm w-30">
-                  Interested Freelancers
-                </button>
-              </footer>
-            </div>
-          </div>
-        </div>
+        </div> -->
+      <div id="myJobs">
+
       </div>
+    </div>
     </div>
   </section>
 
   <!-- Modal -->
-  <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal fade" id="interestedModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -151,7 +80,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <ul class="nav d-flex flex-column gap-2">
+          <ul class="nav d-flex flex-column gap-2" id="interestedList">
             <li class="d-flex justify-content-between">
               <button class="btn">
                 <span class="badge rounded-circle bg-primary me-2">K</span>
@@ -186,6 +115,7 @@
     </div>
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/clientProfile.js"></script>
   <script>
