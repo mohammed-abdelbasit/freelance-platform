@@ -121,7 +121,17 @@ router.get("/:userId", async (req, res) => {
     res.status(200).json(userProfile);
   } catch (error) {
     console.error(error);
-    res.status(500).send("faild to update user information");
+    res.status(500).send("faild to get user information");
+  }
+});
+
+router.get("/checkBalance", async (req, res) => {
+  try {
+    const userBalance = await User.findById(req.params.userId).select({ 'wallet': 1})
+    res.status(200).json(userBalance);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("faild to get user balance");
   }
 });
 

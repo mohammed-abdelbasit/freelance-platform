@@ -12,4 +12,4 @@ Done 6- admin can change user status (suspend, ...etc)
 
 7- admin can warn a user by sending a message
 
-8- freelancer can check his balance
+Done 8- freelancer can check his balance
