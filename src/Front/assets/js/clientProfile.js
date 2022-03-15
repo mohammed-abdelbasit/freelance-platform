@@ -1,8 +1,11 @@
+
+let user = JSON.parse(localStorage.getItem("user"));
+
 async function getJobs() {
   // console.log("Token: ", localStorage.getItem("token"));
-  // console.log("user: ", JSON.parse(localStorage.getItem("user")));
+  console.log("user: ", user);
   try {
-    const { data } = await axios.get("http://localhost:4000/auth/job/jobs", {
+    const { data } = await axios.get(`http://localhost:4000/auth/job/getJobsByUserId?userId=${user["_id"]}`, {
       headers: { token: localStorage.getItem("token") },
     });
 
@@ -12,9 +15,12 @@ async function getJobs() {
     //     currentJob.push(data[i]);
     //   }
     // }
-    let currentJob = data[0];
-    console.log(currentJob.username);
-    console.log(JSON.parse(localStorage.getItem("user")));
+    if (data.length > 0) {
+      console.log(data);
+      let currentJob = data[0];
+      console.log(currentJob.username);
+      console.log(JSON.parse(localStorage.getItem("user")));
+    }
   } catch (error) {
     console.log(error);
   }

@@ -227,6 +227,14 @@ router.post("/freelancerCheckDelieverable", async (req, res) => {
   }
 });
 
-router.get("/getJobsByUserId", async (req, res) => {});
+router.get("/getJobsByUserId", async (req, res) => {
+  try {
+    let userJobs = await Job.find({ owner: req.query.userId })
+    console.log(userJobs);
+    res.status(200).json(userJobs);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
 
 module.exports = router;

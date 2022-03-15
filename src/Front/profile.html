@@ -1,251 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
 
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link
-      rel="stylesheet"
-      href="./assets/vendor/bootstrap/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link
-      rel="stylesheet"
-      href="./assets/vendor/bootstrap-icons/bootstrap-icons.css"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
 
-  <body>
-    <nav
-      class="navbar navbar-expand-md navbar-light bg-white border-bottom py-0"
-    >
-      <div class="container">
-        <a class="navbar-brand p-0" href="index.html"
-          ><img src="assets/img/logo.png" width="100px" alt="logo"
-        /></a>
-        <button
-          class="navbar-toggler m-1 border-0 d-lg-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav gap-md-4 ms-auto mt-2 mt-lg-0">
-            <li class="nav-item py-md-2">
-              <a class="nav-link" href="createJob.html">Create Job</a>
-            </li>
-            <li class="nav-item py-md-2 active">
-              <a class="nav-link" href="profile.html">Profile</a>
-            </li>
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" />
+</head>
 
-            <li class="nav-item py-md-2">
-              <a class="nav-link" href="inbox.html">Inbox</a>
-            </li>
-            <li class="nav-item py-md-2">
-              <a class="nav-link" href="chargeBalance.html">Charge Balance</a>
-            </li>
-            <li class="nav-item py-md-2">
-              <a class="nav-link" href="index.html">Log out</a>
-            </li>
-          </ul>
-        </div>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom py-0">
+    <div class="container">
+      <a class="navbar-brand p-0" href="index.html"><img src="assets/img/logo.png" width="100px" alt="logo" /></a>
+      <button class="navbar-toggler m-1 border-0 d-lg-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav gap-md-4 ms-auto mt-2 mt-lg-0">
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="createJob.html">Create Job</a>
+          </li>
+          <li class="nav-item py-md-2 active">
+            <a class="nav-link" href="profile.html">Profile</a>
+          </li>
+
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="inbox.html">Inbox</a>
+          </li>
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="chargeBalance.html">Charge Balance</a>
+          </li>
+          <li class="nav-item py-md-2">
+            <a class="nav-link" href="index.html">Log out</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <section class="my-5">
-      <div class="container">
-        <header class="d-flex gap-4">
-          <aside class="bg-light py-2 px-4 rounded">
-            <img
-              src="./assets/img/ethereum-logo.png"
-              width="100%"
-              alt="avatar"
-              class="responsive-image"
-            />
-          </aside>
-          <aside class="d-flex flex-column gap-2">
-            <h5 class="mb-0 fw-bold">Ahmed Ali Khalid</h5>
-            <small class="text-muted">Client</small>
-          </aside>
-        </header>
+  <section class="my-5">
+    <div class="container">
+      <header class="d-flex gap-4">
+        <aside class="bg-light py-2 px-4 rounded">
+          <img src="./assets/img/ethereum-logo.png" width="100%" alt="avatar" class="responsive-image" />
+        </aside>
+        <aside class="d-flex flex-column gap-2">
+          <h5 class="mb-0 fw-bold">Ahmed Ali Khalid</h5>
+          <small class="text-muted">Client</small>
+        </aside>
+      </header>
 
-        <div class="row mt-5">
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-4 bg-light border-0">
-              <div class="card-body" id="jobs-container"></div>
-            </div>
+      <div class="row mt-5">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 bg-light border-0">
+            <div class="card-body" id="jobs-container"></div>
           </div>
-          <!-- <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-4 bg-light border-0">
-              <div class="card-body">
-                <header class="d-flex flex-column gap-2">
-                  <div
-                    class="d-flex justify-content-between align-items-center w-100 gap-2"
-                  >
-                    <span class="h5">Website Design</span>
-                    <button class="btn btn-secondary btn-sm rounded-pill">
-                      web development
-                    </button>
-                  </div>
-                  <span class="text-indigo">1 Month</span>
-                </header>
-                <p class="my-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti tenetur hic accusantium earum aliquid dolore quos
-                  molestiae ad. Facere, dicta.
-                </p>
-                <footer
-                  class="d-flex justify-content-between align-items-center"
-                >
-                  <button
-                    data-bs-toggle="modal"
-                    data-bs-target="#modelId"
-                    class="btn btn-indigo btn-sm w-30"
-                  >
-                    Interested Freelancers
-                  </button>
-                </footer>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-4 bg-light border-0">
-              <div class="card-body">
-                <header class="d-flex flex-column gap-2">
-                  <div
-                    class="d-flex justify-content-between align-items-center w-100 gap-2"
-                  >
-                    <span class="h5">Website Design</span>
-                    <button class="btn btn-secondary btn-sm rounded-pill">
-                      web development
-                    </button>
-                  </div>
-                  <span class="text-indigo">1 Month</span>
-                </header>
-                <p class="my-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti tenetur hic accusantium earum aliquid dolore quos
-                  molestiae ad. Facere, dicta.
-                </p>
-                <footer
-                  class="d-flex justify-content-between align-items-center"
-                >
-                  <button
-                    data-bs-toggle="modal"
-                    data-bs-target="#modelId"
-                    class="btn btn-indigo btn-sm w-30"
-                  >
-                    Interested Freelancers
-                  </button>
-                </footer>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mb-4 bg-light border-0">
-              <div class="card-body">
-                <header class="d-flex flex-column gap-2">
-                  <div
-                    class="d-flex justify-content-between align-items-center w-100 gap-2"
-                  >
-                    <span class="h5">Website Design</span>
-                    <button class="btn btn-secondary btn-sm rounded-pill">
-                      web development
-                    </button>
-                  </div>
-                  <span class="text-indigo">1 Month</span>
-                </header>
-                <p class="my-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti tenetur hic accusantium earum aliquid dolore quos
-                  molestiae ad. Facere, dicta.
-                </p>
-                <footer
-                  class="d-flex justify-content-between align-items-center"
-                >
-                  <button
-                    data-bs-toggle="modal"
-                    data-bs-target="#modelId"
-                    class="btn btn-indigo btn-sm w-30"
-                  >
-                    Interested Freelancers
-                  </button>
-                </footer>
-              </div>
-            </div>
-          </div> -->
         </div>
-      </div>
-    </section>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="modelId"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Interested Freelancers</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 bg-light border-0">
+            <div class="card-body">
+              <header class="d-flex flex-column gap-2">
+                <div class="d-flex justify-content-between align-items-center w-100 gap-2">
+                  <span class="h5">Website Design</span>
+                  <button class="btn btn-secondary btn-sm rounded-pill">
+                    web development
+                  </button>
+                </div>
+                <span class="text-indigo">1 Month</span>
+              </header>
+              <p class="my-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti tenetur hic accusantium earum aliquid dolore quos
+                molestiae ad. Facere, dicta.
+              </p>
+              <footer class="d-flex justify-content-between align-items-center">
+                <button data-bs-toggle="modal" data-bs-target="#modelId" class="btn btn-indigo btn-sm w-30">
+                  Interested Freelancers
+                </button>
+              </footer>
+            </div>
           </div>
-          <div class="modal-body">
-            <ul class="nav d-flex flex-column gap-2">
-              <li class="d-flex justify-content-between">
-                <button class="btn">
-                  <span class="badge rounded-circle bg-primary me-2">K</span>
-                  Kamal Komar
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 bg-light border-0">
+            <div class="card-body">
+              <header class="d-flex flex-column gap-2">
+                <div class="d-flex justify-content-between align-items-center w-100 gap-2">
+                  <span class="h5">Website Design</span>
+                  <button class="btn btn-secondary btn-sm rounded-pill">
+                    web development
+                  </button>
+                </div>
+                <span class="text-indigo">1 Month</span>
+              </header>
+              <p class="my-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti tenetur hic accusantium earum aliquid dolore quos
+                molestiae ad. Facere, dicta.
+              </p>
+              <footer class="d-flex justify-content-between align-items-center">
+                <button data-bs-toggle="modal" data-bs-target="#modelId" class="btn btn-indigo btn-sm w-30">
+                  Interested Freelancers
                 </button>
-                <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
-              </li>
-              <li class="d-flex justify-content-between">
-                <button class="btn">
-                  <span class="badge rounded-circle bg-primary me-2">K</span>
-                  Kamal Komar
+              </footer>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 bg-light border-0">
+            <div class="card-body">
+              <header class="d-flex flex-column gap-2">
+                <div class="d-flex justify-content-between align-items-center w-100 gap-2">
+                  <span class="h5">Website Design</span>
+                  <button class="btn btn-secondary btn-sm rounded-pill">
+                    web development
+                  </button>
+                </div>
+                <span class="text-indigo">1 Month</span>
+              </header>
+              <p class="my-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti tenetur hic accusantium earum aliquid dolore quos
+                molestiae ad. Facere, dicta.
+              </p>
+              <footer class="d-flex justify-content-between align-items-center">
+                <button data-bs-toggle="modal" data-bs-target="#modelId" class="btn btn-indigo btn-sm w-30">
+                  Interested Freelancers
                 </button>
-                <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
-              </li>
-              <li class="d-flex justify-content-between">
-                <button class="btn">
-                  <span class="badge rounded-circle bg-primary me-2">K</span>
-                  Kamal Komar
-                </button>
-                <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
-              </li>
-              <li class="d-flex justify-content-between">
-                <button class="btn">
-                  <span class="badge rounded-circle bg-primary me-2">K</span>
-                  Kamal Komar
-                </button>
-                <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
-              </li>
-            </ul>
+              </footer>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/clientProfile.js"></script>
-    <script>
-      getJobs();
-    </script>
-  </body>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Interested Freelancers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav d-flex flex-column gap-2">
+            <li class="d-flex justify-content-between">
+              <button class="btn">
+                <span class="badge rounded-circle bg-primary me-2">K</span>
+                Kamal Komar
+              </button>
+              <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
+            </li>
+            <li class="d-flex justify-content-between">
+              <button class="btn">
+                <span class="badge rounded-circle bg-primary me-2">K</span>
+                Kamal Komar
+              </button>
+              <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
+            </li>
+            <li class="d-flex justify-content-between">
+              <button class="btn">
+                <span class="badge rounded-circle bg-primary me-2">K</span>
+                Kamal Komar
+              </button>
+              <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
+            </li>
+            <li class="d-flex justify-content-between">
+              <button class="btn">
+                <span class="badge rounded-circle bg-primary me-2">K</span>
+                Kamal Komar
+              </button>
+              <button class="btn btn-sm btn-indigo px-4 py-0">Contact</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/clientProfile.js"></script>
+  <script>
+    getJobs();
+  </script>
+</body>
+
 </html>
