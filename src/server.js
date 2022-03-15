@@ -8,6 +8,7 @@ const OpenUserRoutes = require("./routes/openUser.api");
 const UserRoutes = require("./routes/user.api");
 const JobsRoutes = require("./routes/job.api");
 const CategoriesRoutes = require("./routes/categories.api");
+const reportsRoutes = require("./routes/report.api");
 
 (async () => {
   try {
@@ -36,6 +37,8 @@ app.use("/auth/job", auth, JobsRoutes);
 app.use("/auth/user", auth, UserRoutes);
 
 app.use("/auth/category", auth, CategoriesRoutes);
+
+app.use("/auth/report", auth, reportsRoutes);
 
 (async () => {
   try {

@@ -12,6 +12,7 @@ async function getJobs() {
     //     currentJob.push(data[i]);
     //   }
     // }
+
     let currentJob = data[0];
     console.log(currentJob.username);
     console.log(JSON.parse(localStorage.getItem("user")));

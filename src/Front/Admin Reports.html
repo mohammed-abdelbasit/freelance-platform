@@ -30,22 +30,34 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
     <link href="assets/css/loginStyle.css" rel="stylesheet" />
-    <style>
-    
-    </style>
+    <style></style>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom py-0">
+    <nav
+      class="navbar navbar-expand-md navbar-light bg-white border-bottom py-0"
+    >
       <div class="container">
-        <a class="navbar-brand p-0" href="index.html"><img src="assets/img/logo.png" width="100px" alt="logo"></a>
-        <button class="navbar-toggler m-1 border-0 d-lg-none"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand p-0" href="index.html"
+          ><img src="assets/img/logo.png" width="100px" alt="logo"
+        /></a>
+        <button
+          class="navbar-toggler m-1 border-0 d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav gap-md-4 ms-auto mt-2 mt-lg-0">
             <li class="nav-item py-md-2 active">
-              <a class="nav-link" href="Admin Reports.html">Reports <span class="visually-hidden">(current)</span></a>
+              <a class="nav-link" href="Admin Reports.html"
+                >Reports <span class="visually-hidden">(current)</span></a
+              >
             </li>
             <li class="nav-item py-md-2">
               <a class="nav-link" href="Admin Users.html">Users</a>
@@ -57,51 +69,28 @@
         </div>
       </div>
     </nav>
-    
 
-
-    <section class="mt-5 ">
-      
-        <div class="table-responsive">
-          <table class="table align-middle text-center table-striped"> 
-            <thead>
-              <tr class="text-secondary">
-                <th class="fw-normal">Reporter</th>
-                <th class="fw-normal">Reported</th>
-                <th class="fw-normal">Title</th>
-                <th class="fw-normal">Date</th>
-              </tr>
-            </thead>
-            <tbody class="border-0 border-top border-secondary">
-              <tr>
-                <td><span class=" me-1 bg-indigo text-white">K</span> lorem dollor</td>
-                <td>site amit</td>
-                <td>lorem ipsum</td>
-                <td>22/2/2022</td>
-              </tr>
-              <tr>
-                <td><span class=" me-1 bg-indigo text-white">K</span> lorem dollor</td>
-                <td>site amit</td>
-                <td>lorem ipsum</td>
-                <td>22/2/2022</td>
-              </tr>
-              <tr>
-                <td><span class=" me-1 bg-indigo text-white">K</span> lorem dollor</td>
-                <td>site amit</td>
-                <td>lorem ipsum</td>
-                <td>22/2/2022</td>
-              </tr>
-              <tr>
-                <td><span class=" me-1 bg-indigo text-white">K</span> lorem dollor</td>
-                <td>site amit</td>
-                <td>lorem ipsum</td>
-                <td>22/2/2022</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <section class="mt-5">
+      <div class="table-responsive">
+        <table class="table align-middle text-center table-striped">
+          <thead>
+            <tr class="text-secondary">
+              <th class="fw-normal">Reporter</th>
+              <th class="fw-normal">Reported</th>
+              <th class="fw-normal">Date</th>
+            </tr>
+          </thead>
+          <tbody class="border-0 border-top border-secondary">
+            <tr id="reports-container"></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/adminReports.js"></script>
+    <script>
+      getReports();
+    </script>
   </body>
 </html>

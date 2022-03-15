@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>Freelancer Profile</title>
     <link href="assets/img/favicon.png" rel="icon" />
     <link
       rel="stylesheet"
@@ -86,6 +86,13 @@
               <span>React</span>
               <span>NPM</span>
             </small>
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#editModelId"
+              class="btn btn-indigo btn-sm w-30 p-2"
+            >
+              Edit
+            </button>
           </aside>
         </header>
 
@@ -144,7 +151,7 @@
             Add Portfolio
           </button>
 
-          <!-- Modal -->
+          <!-- Add Portfolio Modal -->
 
           <div
             class="modal fade"
@@ -158,6 +165,44 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Add Portfolio</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <label class="form-label" for="customFile"
+                    >Upload a screenshot</label
+                  >
+                  <input type="file" class="form-control" id="customFile" />
+                  <form class="pt-2">
+                    <input
+                      class="form-control"
+                      id="portfolioTitle"
+                      placeholder="Enter title"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Update Profile Modal -->
+
+          <div
+            class="modal fade"
+            id="editModelId"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modelTitleId"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Update Profile</h5>
                   <button
                     type="button"
                     class="btn-close"
@@ -197,8 +242,8 @@
         </div>
       </div>
     </section>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/feed.js"></script>
+    <script src="./assets/js/freelancerProfile.js"></script>
   </body>
 </html>
