@@ -14,9 +14,9 @@ form.addEventListener("submit", async function (event) {
   let category = "empty";
 
   if (document.getElementById("graphic-design-radio-bt").checked)
-    category = "graphic design";
+    category = "Graphic Design";
   if (document.getElementById("software-development-radio-bt").checked)
-    category = "software development";
+    category = "Software Development";
 
   try {
     const res = await axios.post(

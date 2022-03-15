@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feed</title>
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link
+      rel="stylesheet"
+      href="./assets/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/vendor/bootstrap-icons/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-md navbar-light bg-white border-bottom py-0"
+    >
+      <div class="container">
+        <a class="navbar-brand p-0" href="index.html"
+          ><img src="assets/img/logo.png" width="100px" alt="logo"
+        /></a>
+        <button
+          class="navbar-toggler m-1 border-0 d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav gap-md-4 ms-auto mt-2 mt-lg-0">
+            <li class="nav-item py-md-2 active">
+              <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+            <li class="nav-item py-md-2">
+              <a class="nav-link" href="feed.html" id="feed-link"
+                >Feed <span class="visually-hidden">(current)</span></a
+              >
+            </li>
+            <li class="nav-item py-md-2">
+              <a class="nav-link" href="inbox.html">Inbox</a>
+            </li>
+            <!-- <li class="nav-item py-md-2">
+              <a class="nav-link" href="checkBalance.html">Check Balance</a>
+            </li> -->
+            <li class="nav-item py-md-2">
+              <a class="nav-link" href="index.html">Log out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="my-5">
+      <div class="container">
+        <header class="d-flex gap-4">
+          <aside class="bg-light rounded d-flex justify-content-center">
+            <img
+              src="./assets/img/Profile picture.jpg"
+              alt="avatar"
+              class="responsive-image"
+            />
+          </aside>
+          <aside class="d-flex flex-column gap-2">
+            <h5 class="mb-0 pt-4 fw-bold">Ahmed Ali Khalid</h5>
+            <small class="text-muted">Freelancer</small>
+            <!-- <small class="d-flex gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+            </small> -->
+            <span class="mb-0 pt-3 fw-bold">Skills</span>
+            <small class="d-flex gap-3">
+              <span>Vue js</span>
+              <span>React</span>
+              <span>NPM</span>
+            </small>
+          </aside>
+        </header>
+
+        <div class="row mt-5 pt-5">
+          <div class="col-12 col-md-6">
+            <card class="border-0">
+              <h5>About Me</h5>
+              <div class="card-body bg-light rounded">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ratione ab, id voluptates repudiandae aliquid asperiores in
+                architecto iste ipsa aperiam, magni delectus, enim qui. Dolorem
+                accusamus quidem voluptatibus eius molestiae.
+              </div>
+            </card>
+          </div>
+          <div class="col-12 col-md-6">
+            <card class="border-0">
+              <h5>Projects</h5>
+              <div class="card-body bg-light rounded">
+                <ul class="nav d-flex flex-column gap-3 overflow-y-scroll">
+                  <li class="d-flex gap-4">
+                    <i class="bi bi-bag text-indigo"></i>
+                    <span>Commerce Website</span>
+                  </li>
+                  <li class="d-flex gap-4">
+                    <i class="bi bi-bag text-indigo"></i>
+                    <span>Books Website</span>
+                  </li>
+                  <li class="d-flex gap-4">
+                    <i class="bi bi-bag text-indigo"></i>
+                    <span>Videos Website</span>
+                  </li>
+                </ul>
+              </div>
+            </card>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <h5 class="mb-3">Portfolio</h5>
+          <!-- <button
+            ata-bs-toggle="modal"
+            data-bs-target="#modelId"
+            class="btn btn-indigo btn-sm"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            add Portfolio
+          </button> -->
+
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#modelId"
+            class="btn btn-indigo btn-sm w-30"
+          >
+            Add Portfolio
+          </button>
+
+          <!-- Modal -->
+
+          <div
+            class="modal fade"
+            id="modelId"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modelTitleId"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add Portfolio</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <label class="form-label" for="customFile"
+                    >Upload a screenshot</label
+                  >
+                  <input type="file" class="form-control" id="customFile" />
+                  <form class="pt-2">
+                    <input
+                      class="form-control"
+                      id="portfolioTitle"
+                      placeholder="Enter title"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-0 bg-light mt-3">
+                <div class="card-img-top">
+                  <img src="./assets/img/features-2.png" alt="" width="100%" />
+                </div>
+                <div class="card-body bg-white">
+                  <span>Landing page</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/feed.js"></script>
+  </body>
+</html>

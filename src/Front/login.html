@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Sign In</title>
+    <title>Login</title>
+    <link href="assets/img/favicon.png" rel="icon" />
     <link
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
@@ -81,7 +82,21 @@
         if (res.data.user && res.data.token) {
           localStorage.setItem("user", JSON.stringify(res.data.user));
           localStorage.setItem("token", res.data.token);
-          document.location.href = "http://localhost:4000/feed.html";
+
+          switch (JSON.stringify(res.data.user.role)) {
+            case "0":
+              document.location.href = "http://localhost:4000/feed.html";
+              break;
+            case "1":
+              document.location.href = "http://localhost:4000/profile.html";
+              break;
+            case "2":
+              document.location.href = "http://localhost:4000/profile.html";
+              break;
+            case "3":
+              document.location.href = "http://localhost:4000/Admin Users.html";
+              break;
+          }
         }
       });
     </script>
