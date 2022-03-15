@@ -1,10 +1,10 @@
-1- update user
+Done 1- update user 
 
-2- admin apis - need more details -
+Done 2- admin apis - need more details -
 
-3- add status field to job model to determine which sate the job is currently on
+Done accept for done state 3- add status field to job model to determine which sate the job is currently on
 
-4- get finished jobs by freelancer in get profile route
+Done 4- get finished jobs by freelancer in get profile route
 
 5- inbox between client and freelancer and company
 

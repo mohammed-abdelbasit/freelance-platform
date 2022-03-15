@@ -27,7 +27,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use(express.static(__dirname + "/front"));
+app.use(express.static(__dirname + "/Front"));
 
 app.use("/user", OpenUserRoutes);
 

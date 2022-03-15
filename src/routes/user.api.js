@@ -1,101 +1,127 @@
-const express = require("express");
+const express = require('express')
 // const jwt = require('jsonwebtoken')
-const multer = require("multer");
-const router = express.Router();
-const { join } = require("fs");
+const multer = require('multer')
+const router = express.Router()
+const { join } = require('fs')
 
-const User = require("../models/User");
-const Portfolio = require("../models/Portfolio");
+const User = require('../models/User')
+const Portfolio = require('../models/Portfolio')
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, join(process.cwd(), "/uploads/"));
+    cb(null, join(process.cwd(), '/uploads/'))
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + ".jpg");
-  },
-});
-
-const upload = multer({ storage: storage });
-
-router.post(
-  "/addPortfolio",
-  upload.array("screenshots", 5),
-  async (req, res) => {
-    try {
-      const { user } = req.user;
-
-      if (user.role !== 0) {
-        res.status(500).send("only freelancer has a portfolio");
-      }
-
-      const { details } = req.body;
-
-      const portfolio = new Portfolio.create({
-        screenshots: req.files,
-        details,
-      });
-
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
-        { $set: { portfolio } },
-        { new: true }
-      ).populate("portfolio");
-      // const token = jwt.sign({ user: updatedUser }, 'SECRET')
-
-      res.status(200).json({ updatedUser });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("server error addPortfolio");
-    }
+    cb(null, file.fieldname + '.jpg')
   }
-);
+})
+ 
+const upload = multer({ storage: storage })
+
+router.post('/addPortfolio', upload.array('screenshots', 5), async (req, res) => {
+  try {
+    const { user } = req.user
+
+    if (user.role !== 0) {
+      res.status(500).send('only freelancer has a portfolio')
+    }
+
+    const { details } = req.body
+
+    const portfolio = new Portfolio.create({
+      screenshots: req.files,
+      details
+    })
+
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { $set: { portfolio } },
+      { new: true }
+    ).populate('portfolio')
+    // const token = jwt.sign({ user: updatedUser }, 'SECRET')
+
+    res.status(200).json({ updatedUser })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send("server error addPortfolio")
+  }
+})
 
 ////////////////////////////////////////////////////////////////
-
-router.delete("/portfolio", async (req, res) => {
+router.delete('/portfolio', async (req, res) => {
   try {
-    const { user } = req.user;
+    const { user } = req.user
     if (user.role !== 0) {
-      res.status(500).send("only freelancer has a portfolio");
+      res.status(500).send('only freelancer has a portfolio')
     }
 
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
       { $set: { portfolio: null } },
       { new: true }
-    );
+    )
     // const token = jwt.sign({ user: updatedUser }, 'SECRET')
 
-    res.status(200).json({ updatedUser });
+    res.status(200).json({ updatedUser })
   } catch (error) {
-    console.error(error);
-    res.status(500).send("server error deletePortfolio");
+    console.error(error)
+    res.status(500).send('server error deletePortfolio')
   }
-});
+})
 
-////////////////////////////////////////////////////////////////
-
-router.put("/portfolio", async (req, res) => {
+router.put('/portfolio', async (req, res) => {
   try {
-    const { user } = req.user;
+    const { user } = req.user
     if (user.role !== 0) {
-      res.status(500).send("only freelancer has a portfolio");
+      res.status(500).send('only freelancer has a portfolio')
     }
 
-    const portfolioInfo = req.body;
+    const portfolioInfo = req.body
 
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
       { $set: { portfolio: portfolioInfo } },
       { new: true }
-    );
+    )
     // const token = jwt.sign({ user: updatedUser }, 'SECRET')
 
-    res.status(200).json({ updatedUser });
+    res.status(200).json({ updatedUser })
   } catch (error) {
-    console.error(error);
-    res.status(500).send("server error update portfolio");
+    console.error(error)
+    res.status(500).send('server error update portfolio')
   }
-});
-module.exports = router;
+})
+
+router.put('/', async (req, res) => {
+  try {
+    const { user } = req.user
+
+    const userInfo = req.body
+
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { $set: userInfo },
+      { new: true }
+    )
+
+    res.status(200).json({ updatedUser })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('faild to update user information')
+  }
+})
+
+router.get('/', async (req, res) => {
+  try {
+    const { user } = req.user
+
+    const userProfile = await User.findById(user._id)
+
+    res.status(200).json({ userProfile })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('faild to update user information')
+  }
+})
+
+module.exports = router

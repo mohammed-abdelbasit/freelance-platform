@@ -6,6 +6,7 @@ const jobSchema = new Schema({
   price: String,
   details: String,
   duration: String,
+  state: String,
   delieverables: [
     { title: String, freelancerCheck: Boolean, clientCheck: Boolean },
   ],
