@@ -40,7 +40,7 @@ router.post("/create", async (req, res) => {
       deliverables,
       category,
       owner: user,
-      state: 'unsigned',
+      state: "unsigned",
       deliverablesPrice,
     });
 
@@ -60,9 +60,10 @@ router.post("/interested", async (req, res) => {
     const { jobId } = req.body;
 
     if (user.role === 0) {
+      console.log(jobId);
       const job = await Job.findByIdAndUpdate(
         jobId,
-        { $push: { interested: user, state: 'interested' } },
+        { $push: { interested: user }, state: "interested" },
         { lean: true, new: true }
       );
 
@@ -88,7 +89,7 @@ router.post("/assign", async (req, res) => {
       if (job.owner._id.toString() === user._id.toString()) {
         job.assigned.push(userId);
         job.interested.filter((intersted) => intersted === userId);
-        job.state = 'asigned'
+        job.state = "asigned";
         await job.save();
         const owner = await User.findOneAndUpdate(
           { _id: job.owner._id },
@@ -225,5 +226,7 @@ router.post("/freelancerCheckDelieverable", async (req, res) => {
     res.status(500).send("server error checkDelieverable");
   }
 });
+
+router.get("/getJobsByUserId", async (req, res) => {});
 
 module.exports = router;
