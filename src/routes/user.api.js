@@ -115,13 +115,10 @@ router.put("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/:userId", async (req, res) => {
   try {
-    const { user } = req.user;
-
-    const userProfile = await User.findById(user._id);
-
-    res.status(200).json({ userProfile });
+    const userProfile = await User.findById(req.params.userId);
+    res.status(200).json(userProfile);
   } catch (error) {
     console.error(error);
     res.status(500).send("faild to update user information");
