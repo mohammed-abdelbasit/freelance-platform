@@ -125,4 +125,24 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
+router.get("/admin/suspend", async (req, res) => {
+  try {
+    const { user } = req.user;
+
+    if (user.role !== 3) {
+      res.status(500).send("not authorized");
+    }
+
+    const suspendedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { suspended: true },
+      { new: true }
+    );
+    res.status(200).json(suspendedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("faild to suspend user");
+  }
+});
+
 module.exports = router;

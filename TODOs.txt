@@ -8,7 +8,7 @@ Done 4- get finished jobs by freelancer in get profile route
 
 5- inbox between client and freelancer and company
 
-6- admin can change user status (suspend, ...etc)
+Done 6- admin can change user status (suspend, ...etc)
 
 7- admin can warn a user by sending a message
 
