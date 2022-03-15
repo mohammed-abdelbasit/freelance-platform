@@ -43,7 +43,7 @@
               <a class="nav-link" href="createJob.html">Create Job</a>
             </li>
             <li class="nav-item py-md-2 active">
-              <a class="nav-link" href="clientProfile.html">Profile</a>
+              <a class="nav-link" href="profile.html">Profile</a>
             </li>
 
             <li class="nav-item py-md-2">
@@ -80,38 +80,10 @@
         <div class="row mt-5">
           <div class="col-12 col-md-6 col-lg-4">
             <div class="card mb-4 bg-light border-0">
-              <div class="card-body">
-                <header class="d-flex flex-column gap-2">
-                  <div
-                    class="d-flex justify-content-between align-items-center w-100 gap-2"
-                  >
-                    <span class="h5">Website Design</span>
-                    <button class="btn btn-secondary btn-sm rounded-pill">
-                      web development
-                    </button>
-                  </div>
-                  <span class="text-indigo">1 Month</span>
-                </header>
-                <p class="my-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti tenetur hic accusantium earum aliquid dolore quos
-                  molestiae ad. Facere, dicta.
-                </p>
-                <footer
-                  class="d-flex justify-content-between align-items-center"
-                >
-                  <button
-                    data-bs-toggle="modal"
-                    data-bs-target="#modelId"
-                    class="btn btn-indigo btn-sm w-30"
-                  >
-                    Interested Freelancers
-                  </button>
-                </footer>
-              </div>
+              <div class="card-body" id="jobs-container"></div>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-4">
+          <!-- <div class="col-12 col-md-6 col-lg-4">
             <div class="card mb-4 bg-light border-0">
               <div class="card-body">
                 <header class="d-flex flex-column gap-2">
@@ -209,7 +181,7 @@
                 </footer>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -269,7 +241,11 @@
         </div>
       </div>
     </div>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/clientProfile.js"></script>
+    <script>
+      getJobs();
+    </script>
   </body>
 </html>

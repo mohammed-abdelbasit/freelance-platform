@@ -1,13 +1,13 @@
 async function getJobs() {
   // console.log("Token: ", localStorage.getItem("token"));
-    // console.log("user: ", JSON.parse(localStorage.getItem("user")));
+  // console.log("user: ", JSON.parse(localStorage.getItem("user")));
   try {
     const { data } = await axios.get("http://localhost:4000/auth/job/jobs", {
       headers: { token: localStorage.getItem("token") },
     });
     let jobsContainer = document.querySelector("#jobs-container");
     data.forEach((item) => {
-    const { category, duration, details, price, title, owner,_id } = item;
+      const { category, duration, details, price, title, owner, _id } = item;
       const htmlString = `
         <div class="card mb-4 bg-light border-0">
           <div class="card-body">
@@ -61,12 +61,14 @@ async function getJobs() {
   }
 }
 
-async function interested (jobId) {
+async function interested(jobId) {
   try {
-    const { data } = await axios.post("http://localhost:4000/auth/job/interested",{ jobId }, {
-      headers: { token: localStorage.getItem("token") },
-    });
-  } catch (error) {
-    
-  }
+    const { data } = await axios.post(
+      "http://localhost:4000/auth/job/interested",
+      { jobId },
+      {
+        headers: { token: localStorage.getItem("token") },
+      }
+    );
+  } catch (error) {}
 }
